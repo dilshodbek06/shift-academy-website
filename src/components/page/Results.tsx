@@ -1,12 +1,12 @@
 import { motion } from "framer-motion"
-import { Trophy, Briefcase, TrendingUp, CheckCircle2 } from "lucide-react"
+import { Trophy, Briefcase, TrendingUp } from "lucide-react"
 import { Container } from "@/components/shared/Container"
 import { Section } from "@/components/shared/Section"
 
 const companies = [
-  "EPAM Systems", "Uzum", "Click", "Payme", "IT Park", 
-  "Agrobank", "UIC Group", "TBC Bank", "Kapitalbank", "Beeline",
-  "Ucell", "Ipak Yo'li Bank"
+  "EPAM", "Upwork", "OXU", 
+  "Fonon", "Freelance", "North Western", 
+  "BXU", "Kwork", "RealSoft", 
 ]
 
 export const Results = () => {
@@ -45,7 +45,7 @@ export const Results = () => {
             transition={{ delay: 0.2 }}
             className="text-slate-600 text-lg md:text-xl font-medium leading-relaxed"
           >
-            Maqsadli ta'lim tizimi orqali o'quvchilarimiz O'zbekistonning va jahonning eng yirik IT hamda moliya kompaniyalariga ishga joylashishmoqda.
+            Kuchli ta'lim tizimi orqali o'quvchilarimiz O'zbekistonning va jahonning eng yirik IT kompaniyalariga ishga joylashishmoqda.
           </motion.p>
         </div>
 
@@ -63,8 +63,8 @@ export const Results = () => {
             <div className="relative z-10">
               <h3 className="text-5xl sm:text-6xl font-black text-slate-900 tracking-tighter mb-4">80%</h3>
               <div className="w-12 h-1.5 bg-brand rounded-full mb-6" />
-              <p className="text-xl font-bold text-slate-800 mb-2">Dars vaqtidayoq ish topadi</p>
-              <p className="text-slate-500 font-medium leading-relaxed">Bitiruvchilarimizning aksariyati kursni to'liq yakunlamasdan turib real loyihalarga jalb qilinadi.</p>
+              <p className="text-xl font-bold text-slate-800 mb-2">Bitiruvchilarimizning ishga joylashish ko‘rsatkichi</p>
+              <p className="text-slate-500 font-medium leading-relaxed">Bitiruvchilarimizning katta qismi kursdan so‘ng ish topish va ishga kirishda yaxshi natija ko‘rsatadi.</p>
             </div>
           </motion.div>
 
@@ -82,8 +82,8 @@ export const Results = () => {
             <div className="relative z-10">
               <h3 className="text-5xl sm:text-6xl font-black tracking-tighter mb-4">10M+</h3>
               <div className="w-12 h-1.5 bg-white/40 rounded-full mb-6" />
-              <p className="text-xl font-bold mb-2">O'rtacha boshlang'ich maosh</p>
-              <p className="text-brand-50 font-medium leading-relaxed">Katta kompaniyalardagi muvaffaqiyatli stajirovkadan so'ng bitiruvchilarimiz yaxshi daromadga chiqishadi.</p>
+              <p className="text-xl font-bold mb-2">O'rtacha maosh</p>
+              <p className="text-brand-50 font-medium leading-relaxed">Katta kompaniyalardagi muvaffaqiyatli bitiruvchilarimiz yaxshi daromadga chiqishadi.</p>
             </div>
           </motion.div>
         </div>
@@ -97,10 +97,7 @@ export const Results = () => {
           className="w-full mt-32"
         >
             <div className="flex flex-col items-center justify-center mb-10 text-center px-4">
-               <p className="text-slate-500 font-bold mb-4 uppercase tracking-widest text-sm">Bizning bitiruvchilar faoliyat yuritadigan kompaniyalar</p>
-               <div className="flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full font-bold text-sm border border-green-200 shadow-sm">
-                 <CheckCircle2 className="w-4 h-4" /> Barchasi tasdiqlangan maxsus ro'yxat
-               </div>
+               <p className="text-slate-500 font-bold mb-4 uppercase tracking-widest">Bizning bitiruvchilar faoliyat yuritadigan kompaniyalar</p>
             </div>
             
             <div className="relative w-full overflow-hidden mt-10 mb-6">
@@ -155,12 +152,7 @@ export const Results = () => {
                  </div>
               </div>
             </div>
-            
-            <div className="mt-12 text-center relative z-20">
-               <p className="text-slate-400 font-medium">... va yana 50 dan ortiq yirik studiyalar va banklar</p>
-            </div>
         </motion.div>
-
       </Container>
     </Section>
   )

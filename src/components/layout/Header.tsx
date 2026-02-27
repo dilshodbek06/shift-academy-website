@@ -81,7 +81,7 @@ export const Header = () => {
           <div className="lg:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-slate-900 hover:bg-slate-100">
+                <Button variant="ghost" size="icon" className="text-slate-900 hover:bg-slate-100 hover:text-black">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>

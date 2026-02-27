@@ -1,5 +1,5 @@
 import { Container } from "@/components/shared/Container"
-import { Facebook, Instagram, Send } from "lucide-react"
+import { YoutubeIcon, Instagram, Send } from "lucide-react"
 
 export const Footer = () => {
   return (
@@ -23,14 +23,14 @@ export const Footer = () => {
               O'zbekistondagi zamonaviy IT va dasturlash markazi. Kelajak kasblarini biz bilan o'rganing.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand/30 hover:shadow-md transition-all">
+              <a target="_blank" href="https://www.instagram.com/shiftacademy.new/" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand/30 hover:shadow-md transition-all">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand/30 hover:shadow-md transition-all">
+              <a target="_blank" href="https://t.me/shiftacademyuz" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand/30 hover:shadow-md transition-all">
                 <Send className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand/30 hover:shadow-md transition-all">
-                <Facebook className="w-4 h-4" />
+              <a target="_blank" href="https://youtube.com/@shiftacademyuz" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand/30 hover:shadow-md transition-all">
+                <YoutubeIcon className="w-4 h-4" />
               </a>
              
             </div>
@@ -39,11 +39,10 @@ export const Footer = () => {
           <div>
             <h4 className="text-slate-900 font-bold mb-4">Yo'nalishlar</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Frontend Dasturlash</a></li>
-              <li><a href="#" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Backend (Node.js)</a></li>
-              <li><a href="#" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Mobil Dasturlash</a></li>
-              <li><a href="#" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">QA Engineering</a></li>
-              <li><a href="#" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">UI/UX Design</a></li>
+              <li className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Frontend Dasturlash</li>
+              <li className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Backend dasturlash</li>
+              <li className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">SMM</li>
+              <li className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Kompyuter savodxonligi</li>
             </ul>
           </div>
 
@@ -52,7 +51,6 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li><a href="#about" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Biz haqimizda</a></li>
               <li><a href="#courses" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Barcha kurslar</a></li>
-              <li><a href="#results" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Natijalar va Liderlik</a></li>
               <li><a href="#reviews" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">O'quvchilar fikri</a></li>
               <li><a href="#contact" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Biz bilan aloqa</a></li>
             </ul>
@@ -64,7 +62,6 @@ export const Footer = () => {
               <li><a href="#" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Ommaviy oferta</a></li>
               <li><a href="#" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Maxfiylik siyosati</a></li>
               <li><a href="#" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">To'lov shartlari</a></li>
-              <li><a href="#" className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Qaytarish siyosati</a></li>
             </ul>
           </div>
 

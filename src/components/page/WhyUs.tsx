@@ -8,28 +8,28 @@ import { Laptop, Clock, Video, FileText, Award, HelpCircle } from "lucide-react"
 const reasons = [
   {
     icon: <Laptop className="w-8 h-8 text-brand" />,
-    title: "100% Amaliyot",
-    desc: "Nazariya juda kam beriladi. Darslarning 90% real loyihalar ustida kod yozish bilan o'tadi."
+    title: "Amaliy darslar",
+    desc: "Nazariya bilan birgalikda ko'proq amaliyotga asoslangan dars jarayoni."
   },
   {
     icon: <Clock className="w-8 h-8 text-brand" />,
     title: "24/7 Mentorlik",
-    desc: "Darsdan tashqari vaqtlarda ham savollaringizga javob beruvchi yordamchi ustozlar."
+    desc: "Darsdan tashqari vaqtlarda ham savollaringizga javob beruvchi ustozlar."
   },
   {
     icon: <Video className="w-8 h-8 text-brand" />,
     title: "Dars yozuvlari",
-    desc: "Barcha darslar videoga yozib olinadi va maxsus platformamizga yuklab boriladi."
+    desc: "Barcha darslar videoga yozib olinadi va maxsus telegram kanalga yuklab boriladi."
   },
   {
     icon: <FileText className="w-8 h-8 text-brand" />,
-    title: "Boy Portfolio",
-    desc: "Kurs oxiriga kelib rezumeyingizda 5+ ta ishlaydigan tayyor real loyihalar bo'ladi."
+    title: "Portfolio",
+    desc: "Kurs oxiriga kelib rezumeyingizda 5+ ta ishlaydigan amaliy loyihalar bo'ladi."
   },
   {
     icon: <Award className="w-8 h-8 text-brand" />,
-    title: "Xalqaro Sertifikat",
-    desc: "Kursni farqli yakunlagan o'quvchilarga mutaxassislikni tasdiqlovchi sertifikat."
+    title: "Sertifikat",
+    desc: "Kursni muvaffaqiyatli yakunlagan o'quvchilarga sertifikat beriladi."
   },
   {
     icon: <HelpCircle className="w-8 h-8 text-brand" />,

@@ -20,7 +20,7 @@ export const Courses = () => {
   return (
     <Section id="courses" className="bg-slate-50 relative z-10 border-t border-slate-100">
       <Container>
-        <div className="flex flex-col items-center mb-16 text-center max-w-3xl mx-auto">
+        <div className="flex flex-col items-center mb-10 text-center max-w-3xl mx-auto">
           <Badge variant="outline" className="text-brand border-brand/20 bg-brand/5 mb-4 px-4 py-1.5 shadow-sm text-sm font-semibold">Yo'nalishlar</Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 text-slate-900">
             Kasbingizni o'zingiz tanlang
@@ -31,7 +31,7 @@ export const Courses = () => {
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
           {courseCategories.map((cat) => (
             <button
               key={cat}

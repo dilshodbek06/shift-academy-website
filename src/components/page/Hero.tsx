@@ -6,7 +6,7 @@ import { Section } from "@/components/shared/Section"
 
 export const Hero = () => {
   return (
-    <Section id="home" className="pt-32 lg:pt-20 pb-20 overflow-hidden min-h-[95vh] flex flex-col justify-center relative bg-[#FAFCFF]">
+    <Section id="home" className="pt-12 lg:pt-16 pb-20 overflow-hidden min-h-[95vh] flex flex-col justify-center relative bg-[#FAFCFF]">
       {/* Premium Light Pattern Background */}
       <div className="absolute inset-0 z-0">
         {/* Abstract Glowing Blobs */}
@@ -29,10 +29,12 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.1] pb-2"
+              className="text-[2.5rem] md:text-6xl lg:text-[4rem] font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.1] pb-2"
             >
-              Dasturlashni noldan o'rganing — <br/>
-              <span className="brand-gradient inline-block">real loyihalar bilan</span>
+              Dasturlashni  
+              <span className="brand-gradient inline-block"> haqiqiy dasturchilar </span> <br/>
+              muhitida o'rganing 
+              
             </motion.h1>
 
             <motion.p 
@@ -62,7 +64,7 @@ export const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="w-full sm:w-auto border-slate-200 hover:bg-slate-50 text-slate-700 h-14 px-8 text-base font-semibold rounded-xl bg-white shadow-sm transition-all"
+                className="w-full sm:w-auto border-slate-200 hover:bg-slate-50 text-slate-700 h-14 px-8 text-base font-semibold rounded-xl bg-white shadow-sm transition-all hover:text-brand"
                 onClick={() => document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Barcha kurslar
@@ -89,7 +91,7 @@ export const Hero = () => {
                     <svg key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400 drop-shadow-sm" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                   ))}
                 </div>
-                <p className="text-sm text-slate-600 font-semibold">1200+ o'quvchilar ishonchi</p>
+                <p className="text-sm text-slate-600 font-semibold">400+ o'quvchilar ishonchi</p>
               </div>
             </motion.div>
           </div>
@@ -138,7 +140,7 @@ export const Hero = () => {
                     <div className="w-full bg-brand rounded-2xl p-8 shadow-xl shadow-brand/20 text-white relative overflow-hidden transition-all hover:scale-[1.02]">
                       <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-2xl" />
                       <h3 className="font-semibold mb-2 text-white/90">Portfolio loyihalar</h3>
-                      <div className="text-4xl font-extrabold mb-5 tracking-tight">Real Tajriba</div>
+                      <div className="text-4xl font-extrabold mb-5 tracking-tight">Amaliy Tajriba</div>
                       <div className="w-full h-2.5 bg-black/20 rounded-full overflow-hidden">
                         <div className="w-[100%] h-full bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
                       </div>
@@ -150,7 +152,7 @@ export const Hero = () => {
                           {[
                             "Zamonaviy texnologiyalarni o'zlashtirish", 
                             "Kuchli mentorlar nazorati (Code Review)", 
-                            "Real startup loyihalarda qatnashish", 
+                            "Amaliy loyihalar asosida o'qitish", 
                             "Texnik suhbatdan muvaffaqiyatli o'tish"
                           ].map((step, i) => (
                              <div key={i} className="relative flex items-center gap-6 group">

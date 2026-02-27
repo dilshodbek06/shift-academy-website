@@ -1,87 +1,164 @@
 import * as React from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Play } from "lucide-react"
+import { Play, ChevronLeft, ChevronRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Container } from "@/components/shared/Container"
 import { Section } from "@/components/shared/Section"
+import useEmblaCarousel from "embla-carousel-react"
 import { textTestimonials, videoTestimonials } from "@/data/testimonials"
 
 export const Reviews = () => {
   // Store the ID of the currently playing video to conditionally render the iframe instead of the thumbnail
   const [playingVideoId, setPlayingVideoId] = React.useState<string | null>(null)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    align: "start",
+    loop: true,
+    skipSnaps: false,
+    dragFree: true
+  })
+
+  const [prevBtnDisabled, setPrevBtnDisabled] = React.useState(true)
+  const [nextBtnDisabled, setNextBtnDisabled] = React.useState(true)
+
+  const scrollPrev = React.useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
+  const scrollNext = React.useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
+
+  const onSelect = React.useCallback((emblaApi: any) => {
+    setPrevBtnDisabled(!emblaApi.canScrollPrev())
+    setNextBtnDisabled(!emblaApi.canScrollNext())
+  }, [])
+
+  React.useEffect(() => {
+    if (!emblaApi) return
+
+    onSelect(emblaApi)
+    emblaApi.on("reInit", onSelect)
+    emblaApi.on("select", onSelect)
+  }, [emblaApi, onSelect])
 
   return (
-    <Section id="reviews" className="bg-white border-t border-slate-100">
-      <Container>
-        <div className="flex flex-col items-center mb-16 text-center max-w-3xl mx-auto">
-          <Badge variant="outline" className="text-brand border-brand/20 bg-brand/5 mb-4 px-4 py-1.5 shadow-sm text-sm font-semibold">O'quvchilar fikri</Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 text-slate-900">
-            Natijalar o'zi gapiradi
-          </h2>
-          <p className="text-slate-600 text-lg font-medium">
-            Shift Academy ni tanlagan va kelajagini o'zgartirgan insonlar.
-          </p>
+    <Section id="reviews" className="bg-white border-t border-slate-100 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <Container className="relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl">
+            <Badge variant="outline" className="text-brand border-brand/20 bg-brand/5 mb-4 px-4 py-1.5 shadow-sm text-sm font-semibold">O'quvchilar fikri</Badge>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+              Natijalar o'zi <span className="text-brand">gapiradi</span>
+            </h2>
+            <p className="text-slate-500 font-medium text-lg mt-4 max-w-xl">
+              Shift Academy ni tanlagan va kelajagini o'zgartirgan insonlar.
+            </p>
+          </div>
+          
+          <div className="flex items-center gap-3">
+             <button
+               onClick={scrollPrev}
+               disabled={prevBtnDisabled}
+               className="w-12 h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-600 hover:text-brand hover:border-brand hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+             >
+               <ChevronLeft className="w-5 h-5" />
+             </button>
+             <button
+               onClick={scrollNext}
+               disabled={nextBtnDisabled}
+               className="w-12 h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-600 hover:text-brand hover:border-brand hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+             >
+               <ChevronRight className="w-5 h-5" />
+             </button>
+          </div>
         </div>
 
-        {/* Video Testimonials (9:16 Aspect Ratio) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {videoTestimonials.map((video) => (
-            <motion.div
-              key={video.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group flex flex-col items-center"
-            >
-              <div 
-                className="relative w-full aspect-[4/5] sm:aspect-[8/12] rounded-[1rem] overflow-hidden shadow-lg bg-slate-100 transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2 cursor-pointer"
-                onClick={() => setPlayingVideoId(video.id)}
+        {/* Video Testimonials Carousel */}
+        <div className="overflow-hidden p-1 -m-1 mb-16" ref={emblaRef}>
+          <div className="flex -ml-6">
+            {videoTestimonials.map((video) => (
+              <motion.div
+                key={video.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="pl-6 flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0"
               >
-                <AnimatePresence mode="wait">
-                  {playingVideoId === video.id ? (
-                    <motion.div
-                      key="iframe"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="w-full h-full bg-slate-900 rounded-[1rem] overflow-hidden"
-                    >
-                      <iframe
-                        src={`${video.videoUrl.includes('?') ? video.videoUrl + '&' : video.videoUrl + '?'}autoplay=1`}
-                        className="w-full h-full border-0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="thumbnail"
-                      initial={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="absolute inset-0 w-full h-full"
-                    >
-                      <img src={video.thumbnail} alt={video.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent transition-opacity group-hover:opacity-90" />
-                      
-                      {/* Play Button Overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300 relative z-10 border border-white/30 shadow-lg">
-                          <Play className="w-8 h-8 text-white fill-white ml-1" />
+                <div
+                  className="relative w-full aspect-[4/5] sm:aspect-[8/11] rounded-[1.5rem] overflow-hidden shadow-xl shadow-slate-200/50 bg-slate-900 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 cursor-pointer border border-slate-200"
+                  onClick={() => setPlayingVideoId(video.id)}
+                >
+                  <AnimatePresence mode="wait">
+                    {playingVideoId === video.id ? (
+                      <motion.div
+                        key="iframe"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="absolute inset-0 bg-black rounded-[1.5rem] overflow-hidden"
+                      >
+                        {/* Loading spinner */}
+                        <div className="absolute inset-0 flex items-center justify-center z-0">
+                          <div className="w-8 h-8 rounded-full border-4 border-slate-600 border-t-white animate-spin" />
                         </div>
-                      </div>
-                      
-                      {/* Name Badge */}
-                      <div className="absolute bottom-5 left-5">
-                        <div className="bg-white px-5 py-2.5 rounded-full shadow-lg border border-slate-100/50">
-                          <span className="text-slate-900 font-extrabold text-sm sm:text-base">{video.name}</span>
+
+                        <div
+                          className="absolute z-10 left-0 right-0 overflow-hidden"
+                          style={{ top: "-56px", bottom: "-56px" }}
+                        >
+                          <iframe
+                            src={`${video.videoUrl.replace(/\/$/, '')}/embed`}
+                            style={{
+                              position: "absolute",
+                              top: 0,
+                              left: 0,
+                              width: "100%",
+                              height: "100%",
+                              border: "none",
+                              background: "black",
+                            }}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen={true}
+                            scrolling="no"
+                          />
                         </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </motion.div>
-          ))}
+
+                        {/* Extra black masks for pure clean edges */}
+                        <div className="absolute top-0 left-0 right-0 h-2 bg-black z-20 rounded-t-[1.5rem]" />
+                        <div className="absolute bottom-0 left-0 right-0 h-2 bg-black z-20 rounded-b-[1.5rem]" />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="thumbnail"
+                        initial={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute inset-0 w-full h-full"
+                      >
+                        <img
+                          src={video.thumbnail}
+                          alt={video.name}
+                          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent transition-opacity" />
+
+                        {/* Play Button Overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center scale-95 transition-all duration-300 relative z-10 border border-white/30 shadow-2xl">
+                            <Play className="w-8 h-8 text-white fill-white ml-1" />
+                          </div>
+                        </div>
+
+                        {/* Name Info Badge */}
+                        <div className="absolute bottom-5 left-5 right-5 pointer-events-none">
+                          <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-lg">
+                            <h4 className="text-white font-extrabold text-lg leading-tight mb-1">{video.name}</h4>
+                            <p className="text-white/80 font-medium text-sm">{video.role}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Text Testimonials */}

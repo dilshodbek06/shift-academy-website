@@ -32,7 +32,7 @@ export const Projects = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 shadow-sm text-slate-700 text-sm font-bold mb-6"
               >
                 <Sparkles className="w-4 h-4 text-brand" />
-                O'quvchilar ishlari
+                O'quvchilar natijalari
               </motion.div>
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export const Projects = () => {
                 transition={{ delay: 0.1 }}
                 className="text-4xl lg:text-5xl font-black tracking-tight mb-4 text-slate-900 leading-[1.1]"
               >
-                Real loyihalar, <span className="text-brand">real natijalar</span>
+                O‘quvchilarimiz  <span className="text-brand">ishlari</span>
               </motion.h2>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}

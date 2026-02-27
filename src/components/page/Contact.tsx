@@ -1,6 +1,6 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { MapPin, Phone, Clock, CheckCircle2 } from "lucide-react"
@@ -16,16 +16,49 @@ import { faqs } from "@/data/faqs"
 
 const formSchema = z.object({
   fullName: z.string().min(3, "Ism sharifni to'liq kiriting"),
-  phone: z.string().min(9, "Telefon raqamni to'g'ri kiriting"),
+  phone: z.string().regex(/^\+998 \d{2} \d{3} \d{2} \d{2}$/, "Telefon raqamni to'g'ri kiriting (Masalan: +998 90 123 45 67)"),
   direction: z.string().optional(),
 })
 
 type FormData = z.infer<typeof formSchema>
 
+// Utility function to format phone number
+const formatPhoneNumber = (value: string) => {
+  // Remove all non-digit characters except the + sign
+  const numericValue = value.replace(/[^\d+]/g, '');
+  
+  // Ensure it starts with +998
+  let formattedValue = numericValue;
+  if (!formattedValue.startsWith('+998')) {
+      if (formattedValue.startsWith('998')) {
+          formattedValue = '+' + formattedValue;
+      } else if (formattedValue.startsWith('+')) {
+          formattedValue = '+998' + formattedValue.substring(1);
+      } else {
+          formattedValue = '+998' + formattedValue;
+      }
+  }
+
+  // Remove the +998 prefix for formatting the rest
+  const rest = formattedValue.substring(4);
+  
+  // Apply formatting (XX XXX XX XX)
+  let result = '+998';
+  if (rest.length > 0) result += ' ' + rest.substring(0, 2);
+  if (rest.length > 2) result += ' ' + rest.substring(2, 5);
+  if (rest.length > 5) result += ' ' + rest.substring(5, 7);
+  if (rest.length > 7) result += ' ' + rest.substring(7, 9);
+
+  return result.slice(0, 17); // Max length +998 XX XXX XX XX
+};
+
 export const Contact = () => {
   const [isSuccess, setIsSuccess] = React.useState(false)
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormData>({
-    resolver: zodResolver(formSchema)
+  const { register, handleSubmit, control, formState: { errors, isSubmitting }, reset,  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      phone: ""
+    }
   })
 
   const onSubmit = async (data: FormData) => {
@@ -50,7 +83,7 @@ export const Contact = () => {
             Biz bilan bog'laning
           </h2>
           <p className="text-slate-600 font-medium text-lg max-w-2xl mx-auto">
-            Savollaringiz bormi? Konsultatsiyaga yoziling yoki bizning aloqa markazlarimizga murojaat qiling.
+            Savollaringiz bormi? Konsultatsiyaga yoziling yoki bizning aloqa markazimizga murojaat qiling.
           </p>
         </div>
 
@@ -72,7 +105,7 @@ export const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-slate-900 text-sm mb-0.5">Manzil:</h4>
-                      <p className="text-slate-600 text-sm font-medium leading-tight">Buxoro shahri, <br/>Kitoblar olami binosi</p>
+                      <p className="text-slate-600 text-sm font-medium leading-tight">Buxoro shahri, <br/>Muhammad Iqbol ko'chasi, 88-uy</p>
                     </div>
                   </div>
                   
@@ -82,7 +115,7 @@ export const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-slate-900 text-sm mb-0.5">Telefon:</h4>
-                      <a href="tel:+998901234567" className="text-brand hover:text-brand-600 text-sm font-medium transition-colors block mb-1">+998 90 123-45-67</a>
+                      <a href="tel:+998901234567" className="text-brand hover:text-brand-600 text-sm font-medium transition-colors block mb-1">+998 20 005-45-45</a>
                     </div>
                   </div>
 
@@ -105,14 +138,14 @@ export const Contact = () => {
                
                {/* Yandex Widget Map - Focused on Bukhara Kitoblar olami area placeholder focus */}
                <div className="w-full flex-1 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 min-h-[300px] relative">
-                  <iframe 
-                    src="https://yandex.com/map-widget/v1/?ll=64.421712%2C39.773822&z=15&text=Kitoblar+olami+Buxoro" 
-                    width="100%" 
-                    height="100%" 
-                    title="Yandex Map Buxoro"
-                    className="absolute inset-0 border-0"
-                    allowFullScreen={true}
-                  />
+               <iframe
+              src="https://yandex.uz/map-widget/v1/?ll=64.430072%2C39.763462&z=16&oid=148257283914&ol=biz"
+              width="100%"
+              height="100%"
+              title="Shift Academy — Buxoro"
+              className="absolute inset-0 border-0"
+              allowFullScreen
+              />
                </div>
             </div>
           </motion.div>
@@ -166,10 +199,28 @@ export const Contact = () => {
 
                     <div>
                       <label className="block text-sm font-bold text-slate-700 mb-2">Telefon raqamingiz</label>
-                      <Input 
-                        {...register("phone")}
-                        placeholder="+998 90 123 45 67"
-                        className="h-14 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 rounded-xl focus-visible:ring-brand focus-visible:border-brand shadow-sm"
+                      <Controller
+                        name="phone"
+                        control={control}
+                        render={({ field: { onChange, onBlur, value, ref } }) => (
+                          <Input 
+                            ref={ref}
+                            value={value}
+                            onBlur={onBlur}
+                            onChange={(e) => {
+                              const formatted = formatPhoneNumber(e.target.value);
+                              onChange(formatted);
+                            }}
+                            onFocus={(e) => {
+                              if (!e.target.value) {
+                                onChange('+998 ');
+                              }
+                            }}
+                            placeholder="+998 90 123 45 67"
+                            maxLength={17}
+                            className="h-14 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 rounded-xl focus-visible:ring-brand focus-visible:border-brand shadow-sm"
+                          />
+                        )}
                       />
                       {errors.phone && <p className="text-red-500 text-sm mt-1.5 font-medium">{errors.phone.message}</p>}
                     </div>
@@ -182,10 +233,9 @@ export const Contact = () => {
                       >
                         <option value="">Tanlang...</option>
                         <option value="frontend">Frontend Dasturlash</option>
-                        <option value="backend">Backend (Node.js)</option>
-                        <option value="mobile">Mobil Dasturlash</option>
-                        <option value="ux">UI/UX Dizayn</option>
-                        <option value="other">Boshqa yo'nalish / Bilmayman</option>
+                        <option value="backend">Backend dasturlash</option>
+                        <option value="smm">SMM</option>
+                        <option value="kompyuter">Kompyuter savodxonligi</option>
                       </select>
                     </div>
 
@@ -197,7 +247,7 @@ export const Contact = () => {
                       {isSubmitting ? "Yuborilmoqda..." : "Yuborish"}
                     </Button>
                     
-                    <p className="text-xs text-slate-500 text-center font-medium mt-4">Barcha ma'lumotlar maxfiyligi kafolatlangan.</p>
+                    {/* <p className="text-xs text-slate-500 text-center font-medium mt-4">Barcha ma'lumotlar maxfiyligi kafolatlangan.</p> */}
                   </form>
                 )}
               </CardContent>

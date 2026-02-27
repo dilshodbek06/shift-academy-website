@@ -41,17 +41,23 @@ export const courses: Course[] = [
     format: ["Offline", "Online"],
     level: "Boshlang'ich",
     category: "SMM",
-    outcomes: ["iOS/Android ilovalar", "App Store/Play Market'ga yuklash", "Cross-platform development"],
+   outcomes: [
+    "Kontent strategiya va reja tuzish",
+    "Post/Reels/Story uchun kreativ g‘oyalar ishlab chiqish",
+    "Target reklama (Meta Ads) asoslari va sozlash",
+    "Auditoriya tahlili va KPI (reach, engagement, CTR) bilan ishlash",
+    "SMM hisobot (report) tayyorlash va optimizatsiya"
+  ],
   },
   {
     id: "ks-engineering",
     title: "Kompyuter savodxonligi",
-    description: "Kompyuter texnologiyalaridan samarali foydalanishni o'rganing. Microsoft Office, Internet va boshqa dasturlarni o'rganing.",
+   description: "Kompyuter savodxonligini o'rganing: Microsoft Office, internetdan xavfsiz va samarali foydalanish hamda kundalik zarur dasturlar bilan ishlashni o‘rganing.",
     duration: "1 oy",
-    format: ["Offline", "Online"],
+    format: ["Offline",],
     level: "Boshlang'ich",
     category: "Kompyuter savodxonligi",
-    outcomes: ["Microsoft Office", "Internet", "Boshqa dasturlar"],
+    outcomes: ["Microsoft Office", "Internet bilan ishlash", "Google dasturlari bilan ishlash", "Boshqa dasturlar"],
   }
 ];
 

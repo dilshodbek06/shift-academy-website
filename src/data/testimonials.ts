@@ -12,7 +12,7 @@ export interface VideoTestimonial {
   name: string;
   role: string;
   thumbnail: string;
-  videoUrl: string; // e.g. youtube embed url
+  videoUrl: string; // e.g. instagram reel url
 }
 
 export const textTestimonials: Testimonial[] = [
@@ -42,26 +42,41 @@ export const textTestimonials: Testimonial[] = [
   }
 ];
 
+
 export const videoTestimonials: VideoTestimonial[] = [
   {
     id: "v1",
-    name: "Sherzod Abdullayev",
-    role: "Mobile Dasturchi",
-    thumbnail: "/video-thumb-1.jpg", 
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" // placeholder
+    name: "Mirfayz Karimov",
+    role: "Software Engineer",
+    thumbnail: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop", 
+    videoUrl: "https://www.instagram.com/reel/Cy3cYceNdrA/" // Example IG Reel
   },
   {
     id: "v2",
-    name: "Nodira Karimova",
-    role: "Frontend Dasturchi",
-    thumbnail: "/video-thumb-2.jpg",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    name: "Shoxruh Nematov",
+    role: "Software Engineer",
+    thumbnail: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    videoUrl: "https://www.instagram.com/reel/Cwfkwgot5U8/" // Example IG Reel
   },
   {
     id: "v3",
-    name: "Alisher Ubaydullayev",
-    role: "Data Scientist",
-    thumbnail: "/video-thumb-3.jpg",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    name: "Javohir Haqnazarov",
+    role: "Backend Dasturchi",
+    thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
+    videoUrl: "https://www.instagram.com/reel/C0eezjUNkXc/" // Example IG Reel
+  },
+  {
+    id: "v4",
+    name: "Akmal Hakimov",
+    role: "Fullstack Dasturchi",
+    thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
+    videoUrl: "https://www.instagram.com/reel/DEfLa3gtux1/" // Example IG Reel
+  },
+    {
+    id: "v5",
+    name: "Ibrohim O'rinov",
+    role: "SMM",
+    thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
+    videoUrl: "https://www.instagram.com/reel/DJhPstuoAi2/" // Example IG Reel
   }
 ];

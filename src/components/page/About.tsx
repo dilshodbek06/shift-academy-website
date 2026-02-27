@@ -45,7 +45,7 @@ export const About = () => {
               <span className="brand-gradient pb-2 inline-block">kadrlar tayyorlaymiz.</span>
             </h2>
             <p className="text-slate-600 text-lg mb-10 leading-relaxed font-medium">
-              Shift Academy — bu an'anaviy ta'limdan farq qiladigan, zamonaviy axborot texnologiyalari markazi. 
+              <span className="font-bold text-brand">Shift Academy</span>  — bu an'anaviy ta'limdan farq qiladigan, zamonaviy axborot texnologiyalari markazi. 
               Bizning asosiy vazifamiz — sizni bugungi kun talabiga javob beradigan kuchli dasturchi qilib tayyorlash.
             </p>
             
@@ -121,7 +121,7 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.6, type: "spring" }}
               className="absolute top-8 right-8 w-28 h-28 bg-brand text-white rounded-full shadow-2xl shadow-brand/40 flex flex-col items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-300"
             >
-              <span className="text-3xl font-black mb-0.5 tracking-tighter">5+</span>
+              <span className="text-3xl font-black mb-0.5 tracking-tighter">4+</span>
               <span className="text-[10px] font-bold text-white/90 uppercase tracking-wider text-center leading-tight">Yillik<br/>Tajriba</span>
             </motion.div>
           </motion.div>

@@ -30,8 +30,7 @@ export const CTA = () => {
               Karyerangizni o'zgartirish <br className="hidden md:block"/> vaqti keldi!
             </h2>
             <p className="text-white/90 text-lg md:text-xl font-medium mb-10 max-w-2xl leading-relaxed">
-              Dasturlash sirlarini o'rganing va IT olamiga birinchi qadamingizni qat'iy qo'ying.
-              Bizning tajribali mentorlar sizni natijaga olib chiqishga kafolat beradi.
+    Dasturlashni o‘rganib, muammolarni yechish va texnologiyalar bilan ishlash ko‘nikmasini shakllantiring. IT olamiga ishonchli qadam qo‘yib, yangi kasb va yangi imkoniyatlar sari yo‘l oching.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
