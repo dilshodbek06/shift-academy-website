@@ -6,7 +6,7 @@ import { Section } from "@/components/shared/Section"
 
 export const Hero = () => {
   return (
-    <Section id="home" className="pt-12 lg:pt-16 pb-20 overflow-hidden min-h-[95vh] flex flex-col justify-center relative bg-[#FAFCFF]">
+    <Section id="home" className="pt-12 lg:pt-10 pb-20 overflow-hidden min-h-[95vh] flex flex-col justify-center relative bg-[#FAFCFF]">
       {/* Premium Light Pattern Background */}
       <div className="absolute inset-0 z-0">
         {/* Abstract Glowing Blobs */}
@@ -31,7 +31,7 @@ export const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-[2.5rem] md:text-6xl lg:text-[4rem] font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.1] pb-2"
             >
-              Dasturlashni  
+              Dasturlashni  {" "}
               <span className="brand-gradient inline-block"> haqiqiy dasturchilar </span> <br/>
               muhitida o'rganing 
               
@@ -43,8 +43,7 @@ export const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-slate-600 max-w-xl mb-10 leading-relaxed font-medium"
             >
-              Zamonaviy IT kasbini egallang. Kuchli mentorlar yordamida portfoliongizni 
-              boyiting va qisqa muddatda muvaffaqiyatli ishga joylashing.
+              Zamonaviy IT kasblarini egallang. Kuchli mentorlar yordamida sifatli bilim oling va IT olamida o'z kelajagingizni yarating. 
             </motion.p>
 
             <motion.div 

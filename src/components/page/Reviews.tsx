@@ -182,9 +182,6 @@ export const Reviews = () => {
                   <p className="text-slate-700 italic mb-8 flex-grow font-medium leading-relaxed">"{testimonial.quote}"</p>
                   
                   <div className="flex items-center gap-4 border-t border-slate-100 pt-6">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-slate-100 shadow-sm">
-                       <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover" />
-                    </div>
                     <div>
                       <h4 className="font-bold text-slate-900 leading-none mb-1">{testimonial.name}</h4>
                       <p className="text-sm text-brand font-medium">{testimonial.role}</p>

@@ -2,6 +2,7 @@ export interface Project {
   id: number;
   title: string;
   student: string;
+  gender: "male" | "female";
   image: string;
   link: string;
   course: string;
@@ -10,50 +11,47 @@ export interface Project {
 export const studentProjects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Dashboard",
-    student: "Jahon G'aniyev",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-    link: "https://github.com/jahon",
-    course: "Frontend React"
+    title: "Portfolio website",
+    student: "Azimbek Gulyamov",
+    gender: "male",
+    image: "/images/projects/project1.png",
+    link: "https://azzim.me",
+    course: "Frontend dasturlash",
   },
   {
     id: 2,
-    title: "Real Estate Platform",
-    student: "Dildora Alimova",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2573&auto=format&fit=crop",
-    link: "https://github.com/dildora",
-    course: "Fullstack Node.js"
+    title: "Med Helper website",
+    student: "Rayimbek Narziyev",
+    gender: "male",
+    image: "/images/projects/project2.png",
+    link: "https://ekomedtreyd-mocha.vercel.app/",
+    course: "Frontend dasturlash",
   },
   {
     id: 3,
-    title: "Fintech Mobile App",
-    student: "Sardor Karimov",
-    image: "https://images.unsplash.com/photo-1555421689-d68471e189f2?q=80&w=2670&auto=format&fit=crop",
-    link: "https://github.com/sardor",
-    course: "Mobil Dasturlash"
+    title: "Ecommerce website",
+    student: "Azizbek Narzilloyev",
+    gender: "male",
+    image: "/images/projects/project3.png",
+    link: "https://internet-shop-1rs6.vercel.app/",
+    course: "Frontend dasturlash",
   },
   {
     id: 4,
-    title: "EdTech Learning Portal",
-    student: "Malika Tohirova",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=2574&auto=format&fit=crop",
-    link: "https://github.com/malika",
-    course: "Frontend React"
+    title: "Education website",
+    student: "Azizbek Narzilloyev",
+    gender: "male",
+    image: "/images/projects/project4.png",
+    link: "https://pedestal-education-w-cnt2.bolt.host/",
+    course: "Frontend dasturlash",
   },
   {
     id: 5,
-    title: "AI Image Generator UI",
-    student: "Bekzod Umarov",
-    image: "https://images.unsplash.com/photo-1620712948633-53e346fbb23e?q=80&w=2574&auto=format&fit=crop",
-    link: "https://github.com/bekzod",
-    course: "Frontend Vue"
+    title: "Arabic tutor website",
+    student: "Azimbek Gulyamov",
+    gender: "male",
+    image: "/images/projects/project5.png",
+    link: "https://bayt.dev",
+    course: "Frontend dasturlash",
   },
-  {
-    id: 6,
-    title: "Restaurant POS System",
-    student: "Aziza Qodirova",
-    image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2670&auto=format&fit=crop",
-    link: "https://github.com/aziza",
-    course: "Java Backend"
-  }
 ];
