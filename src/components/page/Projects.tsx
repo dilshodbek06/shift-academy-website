@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { ExternalLink, Sparkles } from "lucide-react"
 import { Container } from "@/components/shared/Container"
@@ -5,6 +6,28 @@ import { Section } from "@/components/shared/Section"
 import { studentProjects } from "@/data/projects"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel"
 
+const ProjectImage = ({ src, alt }: { src: string; alt: string }) => {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  return (
+    <>
+      <div 
+        className={`absolute inset-0 bg-slate-200/50 animate-pulse transition-opacity duration-500 rounded-xl ${
+          isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-10'
+        }`} 
+      />
+      <img 
+        src={src} 
+        alt={alt} 
+        loading="lazy"
+        onLoad={() => setIsLoaded(true)}
+        className={`w-full h-full object-cover group-hover:scale-[1.03] transition-all duration-700 ${
+          isLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
+        }`}
+      />
+    </>
+  )
+}
 
 export const Projects = () => {
   return (
@@ -81,11 +104,7 @@ export const Projects = () => {
                 >
                   {/* Project Image Card */}
                   <div className="relative aspect-video overflow-hidden bg-slate-50 m-2 rounded-xl">
-                     <img 
-                       src={project.image} 
-                       alt={project.title} 
-                       className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
-                     />
+                     <ProjectImage src={project.image} alt={project.title} />
                   </div>
 
                   {/* Project Details */}

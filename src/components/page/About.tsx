@@ -82,7 +82,7 @@ export const About = () => {
             <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/5 transition-colors duration-500" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80" />
 
-            {/* Floating Glassmorphism Badge (Success Rate) */}
+            {/* Floating Glassmorphism Badge (Projects Focus) */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -92,24 +92,31 @@ export const About = () => {
             >
               <div className="flex items-center gap-5 mb-5">
                 <div className="w-14 h-14 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
-                  <Target className="w-7 h-7 text-brand" />
+                  <Code2 className="w-7 h-7 text-brand" />
                 </div>
                 <div>
-                  <h4 className="text-4xl font-black text-slate-900 tracking-tight leading-none mb-1">95%</h4>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Muvaffaqiyat</p>
+                  <h4 className="text-4xl font-black text-slate-900 tracking-tight leading-none mb-1">5+</h4>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Amaliy loyihalar</p>
                 </div>
               </div>
-              <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "95%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
-                  className="h-full bg-brand rounded-full" 
-                />
+              
+              <div className="flex gap-2">
+                 {[1, 2, 3, 4, 5].map((i) => (
+                   <motion.div 
+                     key={i}
+                     initial={{ height: "4px" }}
+                     whileInView={{ height: `${20 + (i * 15)}%` }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.8, delay: 0.5 + (i * 0.1), ease: "easeOut" }}
+                     className="flex-1 bg-brand rounded-t-sm opacity-80" 
+                     style={{ minHeight: '8px' }}
+                   />
+                 ))}
               </div>
-              <p className="text-sm text-slate-600 font-medium mt-4 leading-relaxed">
-                Mentorlik va real loyihalar ustida ishlash orqali bitiruvchilarimizning asosiy qismi tezda ish topadi.
+              <div className="h-1 w-full bg-slate-200 rounded-full mt-1 mb-4" />
+              
+              <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                Kurs davomida amaliy loyihalar bajarib, shaxsiy portfolio shakllantirasiz.
               </p>
             </motion.div>
 
