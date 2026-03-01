@@ -34,7 +34,7 @@ function App() {
     <>
       <Helmet>
         <html lang="uz" />
-        <title>{`${siteConfig.name} - ${siteConfig.description.split('.')[0]}`}</title>
+        <title>{siteConfig.description.split('.')[0]}</title>
         <meta name="description" content={siteConfig.description} />
         <meta name="keywords" content={siteConfig.keywords.join(", ")} />
         <link rel="canonical" href={siteConfig.url} />
