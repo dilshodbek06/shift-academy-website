@@ -1,21 +1,20 @@
 export const siteConfig = {
   name: "Shift Academy",
-  description: "Dasturlashni noldan o'rganing — real loyihalar bilan. Zamonaviy IT kasblari, kuchli mentorlik, 100% amaliyot va ishga joylashishda ko'mak.",
+  description: "Shift Academy - xalqaro dasturchilar maktabi.",
   url: "https://shiftacademy.uz",
   ogImage: "https://shiftacademy.uz/og-image.png",
   keywords: [
     "Dasturlash",
     "IT Academy",
     "Frontend o'rganish",
-    "Backend Node.js",
-    "Kurslar Toshkent",
+    "Backend Java",
+    "Kurslar Buxoro",
     "React.js kurslari",
-    "Python",
     "Shift Academy",
   ],
   links: {
-    instagram: "https://instagram.com/shiftacademy",
-    telegram: "https://t.me/shiftacademy",
-    facebook: "https://facebook.com/shiftacademy",
+    instagram: "https://instagram.com/shiftacademy.new",
+    telegram: "https://t.me/shiftacademyuz",
+    youtube: "https://youtube.com/@shiftacademyuz",
   },
 }

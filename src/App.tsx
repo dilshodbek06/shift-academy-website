@@ -22,12 +22,12 @@ function App() {
     "logo": `${siteConfig.url}/logo.svg`,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Amir Temur ko'chasi 108-uy",
-      "addressLocality": "Toshkent",
-      "addressRegion": "Yunusobod",
+      "streetAddress": "Muhammad Iqbol ko'chasi, 88-uy",
+      "addressLocality": "Buxoro",
+      "addressRegion": "Buxoro",
       "addressCountry": "UZ"
     },
-    "telephone": "+998901234567",
+    "telephone": "+998200254545",
   }
 
   return (
