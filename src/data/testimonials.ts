@@ -39,6 +39,14 @@ export const textTestimonials: Testimonial[] = [
     avatar: "JT",
     quote: "Node.js kursini o'qidim va o'zim bilmagan shuncha chuqur texnologiyalar bilan ishlashni o'rgandim. Muhit va networking ajoyib darajada.",
     rating: 4,
+  },
+  {
+    id: "t4",
+    name: "Javohir Toshmatov",
+    role: "Backend Engineer",
+    avatar: "JT",
+    quote: "Node.js kursini o'qidim va o'zim bilmagan shuncha chuqur texnologiyalar bilan ishlashni o'rgandim. Muhit va networking ajoyib darajada.",
+    rating: 4,
   }
 ];
 

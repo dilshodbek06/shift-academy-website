@@ -62,11 +62,28 @@ export const Contact = () => {
   })
 
   const onSubmit = async (data: FormData) => {
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    console.log("Form Submitted:", data)
-    setIsSuccess(true)
-    reset()
-    setTimeout(() => setIsSuccess(false), 5000)
+    try {
+      // Endi barcha xavfsizlik va Token ishlari Vercel backendida bo'ladi
+      // Biz faqat ma'lumotlarni yuboramiz xolos.
+      const response = await fetch('/api/telegram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Xatolik yuz berdi. Iltimos telefon raqam orqali bog'laning.");
+      }
+
+      setIsSuccess(true);
+      reset();
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error("Xatolik:", error);
+      alert("Xabar yuborishda xatolik yuz berdi. Iltimos telefon raqam orqali bog'laning.");
+    }
   }
 
   return (
@@ -191,7 +208,7 @@ export const Contact = () => {
                       <label className="block text-sm font-bold text-slate-700 mb-2">Ism sharifingiz</label>
                       <Input 
                         {...register("fullName")}
-                        placeholder="Masalan: Alisher Navoiy"
+                        placeholder="Masalan: Jasurbek Olimov"
                         className="h-14 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 rounded-xl focus-visible:ring-brand focus-visible:border-brand shadow-sm"
                       />
                       {errors.fullName && <p className="text-red-500 text-sm mt-1.5 font-medium">{errors.fullName.message}</p>}
@@ -246,8 +263,6 @@ export const Contact = () => {
                     >
                       {isSubmitting ? "Yuborilmoqda..." : "Yuborish"}
                     </Button>
-                    
-                    {/* <p className="text-xs text-slate-500 text-center font-medium mt-4">Barcha ma'lumotlar maxfiyligi kafolatlangan.</p> */}
                   </form>
                 )}
               </CardContent>
