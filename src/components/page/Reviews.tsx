@@ -134,6 +134,7 @@ export const Reviews = () => {
                         <img
                           src={video.thumbnail}
                           alt={video.name}
+                          loading="lazy"
                           className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent transition-opacity" />

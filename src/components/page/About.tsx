@@ -74,8 +74,9 @@ export const About = () => {
           >
             {/* Main High-Quality Image */}
             <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2850" 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=60&w=800" 
               alt="Students collaborating" 
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             {/* Image Overlay for contrast */}

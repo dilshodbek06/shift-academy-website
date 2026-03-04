@@ -1,16 +1,18 @@
+import { lazy, Suspense } from 'react';
 import { Helmet } from "react-helmet-async"
 import { siteConfig } from "@/siteConfig"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { Hero } from "@/components/page/Hero"
 import { Courses } from "@/components/page/Courses"
-import { About } from "@/components/page/About"
-import { Results } from "@/components/page/Results"
-import { WhyUs } from "@/components/page/WhyUs"
-import { Reviews } from "@/components/page/Reviews"
-import { CTA } from "@/components/page/CTA"
-import { Contact } from "@/components/page/Contact"
-import { Projects } from "@/components/page/Projects"
+
+const About = lazy(() => import("@/components/page/About").then(m => ({ default: m.About })));
+const Results = lazy(() => import("@/components/page/Results").then(m => ({ default: m.Results })));
+const WhyUs = lazy(() => import("@/components/page/WhyUs").then(m => ({ default: m.WhyUs })));
+const Reviews = lazy(() => import("@/components/page/Reviews").then(m => ({ default: m.Reviews })));
+const CTA = lazy(() => import("@/components/page/CTA").then(m => ({ default: m.CTA })));
+const Contact = lazy(() => import("@/components/page/Contact").then(m => ({ default: m.Contact })));
+const Projects = lazy(() => import("@/components/page/Projects").then(m => ({ default: m.Projects })));
 
 function App() {
   const jsonLd = {
@@ -67,13 +69,15 @@ function App() {
         <main className="flex-1">
           <Hero />
           <Courses />
-          <About />
-          <Results />
-          <Projects />
-          <WhyUs />
-          <Reviews />
-          <CTA />
-          <Contact />
+          <Suspense fallback={<div className="h-64 flex items-center justify-center text-slate-400">Yuklanmoqda...</div>}>
+            <About />
+            <Results />
+            <Projects />
+            <WhyUs />
+            <Reviews />
+            <CTA />
+            <Contact />
+          </Suspense>
         </main>
 
         <Footer />

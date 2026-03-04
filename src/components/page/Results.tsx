@@ -77,6 +77,7 @@ const CompanyCard = ({ company }: { company: typeof companies[0] }) => {
           <img 
             src={imgSrc} 
             alt={`${company.name} logo`} 
+            loading="lazy"
             className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
             onError={handleError}
           />
