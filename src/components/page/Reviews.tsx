@@ -126,6 +126,7 @@ export const Reviews = () => {
                             src={video.videoUrl}
                             autoPlay
                             controls
+                            controlsList="nodownload"
                             playsInline
                             onCanPlay={() => setIsVideoLoading(false)}
                             className={`w-full h-full object-cover transition-opacity duration-500 delay-150 ${isVideoLoading ? 'opacity-0' : 'opacity-100'}`}
