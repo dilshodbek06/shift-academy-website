@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           
           <div className="col-span-1 lg:col-span-1">
-            <a href="#home" className="flex items-center gap-3 mb-6 inline-flex group">
+            <a href="#home" className="flex items-center gap-3 mb-6 group">
               <img 
                 src="/logo.svg" 
                 alt="Shift Academy Logo" 
@@ -39,10 +39,10 @@ export const Footer = () => {
           <div>
             <h4 className="text-slate-900 font-bold mb-4">Yo'nalishlar</h4>
             <ul className="space-y-3">
-              <li className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Frontend Dasturlash</li>
-              <li className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Backend dasturlash</li>
-              <li className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">SMM</li>
-              <li className="text-slate-500 text-sm font-medium hover:text-brand transition-colors">Kompyuter savodxonligi</li>
+              <li className="text-slate-500 text-sm font-medium transition-colors">Frontend Dasturlash</li>
+              <li className="text-slate-500 text-sm font-medium transition-colors">Backend dasturlash</li>
+              <li className="text-slate-500 text-sm font-medium transition-colors">SMM</li>
+              <li className="text-slate-500 text-sm font-medium transition-colors">Kompyuter savodxonligi</li>
             </ul>
           </div>
 

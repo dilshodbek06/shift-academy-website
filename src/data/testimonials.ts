@@ -11,8 +11,9 @@ export interface VideoTestimonial {
   id: string;
   name: string;
   role: string;
+  thumbnailTime?: number; // Time in seconds to use as the thumbnail poster frame
   thumbnail: string;
-  videoUrl: string; // e.g. instagram reel url
+  videoUrl: string; // e.g. direct mp4 url
 }
 
 export const textTestimonials: Testimonial[] = [
@@ -53,38 +54,43 @@ export const textTestimonials: Testimonial[] = [
 
 export const videoTestimonials: VideoTestimonial[] = [
   {
-    id: "v1",
-    name: "Mirfayz Karimov",
-    role: "Software Engineer",
-    thumbnail: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop", 
-    videoUrl: "https://www.instagram.com/reel/Cy3cYceNdrA/" // Example IG Reel
-  },
-  {
     id: "v2",
     name: "Shoxruh Nematov",
     role: "Software Engineer",
+    thumbnailTime: 2,
     thumbnail: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
-    videoUrl: "https://www.instagram.com/reel/Cwfkwgot5U8/" // Example IG Reel
+    videoUrl: "https://jkifnszrnidajmhzlodj.supabase.co/storage/v1/object/public/videos/reviews/review1.mp4" 
   },
+   {
+    id: "v1",
+    name: "Mirfayz Karimov",
+    role: "Software Engineer",
+    thumbnailTime:2,
+    thumbnail: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop", 
+    videoUrl: "https://jkifnszrnidajmhzlodj.supabase.co/storage/v1/object/public/videos/reviews/review2.mp4" 
+  },
+  // {
+  //   id: "v3",
+  //   name: "Javohir Haqnazarov",
+  //   role: "Backend Dasturchi",
+  //   thumbnailTime: 5,
+  //   thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
+  //   videoUrl: "https://jkifnszrnidajmhzlodj.supabase.co/storage/v1/object/public/videos/reviews/review3.mp4" 
+  // },
   {
     id: "v3",
-    name: "Javohir Haqnazarov",
-    role: "Backend Dasturchi",
-    thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
-    videoUrl: "https://www.instagram.com/reel/C0eezjUNkXc/" // Example IG Reel
-  },
-  {
-    id: "v4",
     name: "Akmal Hakimov",
     role: "Fullstack Dasturchi",
+    thumbnailTime: 4,
     thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
-    videoUrl: "https://www.instagram.com/reel/DEfLa3gtux1/" // Example IG Reel
+    videoUrl: "https://jkifnszrnidajmhzlodj.supabase.co/storage/v1/object/public/videos/reviews/review4.mp4" 
   },
     {
-    id: "v5",
+    id: "v4",
     name: "Ibrohim O'rinov",
     role: "SMM",
+    thumbnailTime: 2.5,
     thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
-    videoUrl: "https://www.instagram.com/reel/DJhPstuoAi2/" // Example IG Reel
+    videoUrl: "https://jkifnszrnidajmhzlodj.supabase.co/storage/v1/object/public/videos/reviews/review3.MP4" 
   }
 ];

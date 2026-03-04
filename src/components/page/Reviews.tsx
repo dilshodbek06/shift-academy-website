@@ -11,6 +11,7 @@ import { textTestimonials, videoTestimonials } from "@/data/testimonials"
 export const Reviews = () => {
   // Store the ID of the currently playing video to conditionally render the iframe instead of the thumbnail
   const [playingVideoId, setPlayingVideoId] = React.useState<string | null>(null)
+  const [isVideoLoading, setIsVideoLoading] = React.useState(true)
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     align: "start",
     loop: true,
@@ -84,7 +85,12 @@ export const Reviews = () => {
               >
                 <div
                   className="relative w-full aspect-[4/5] sm:aspect-[8/11] rounded-[1.5rem] overflow-hidden shadow-xl shadow-slate-200/50 bg-slate-900 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 cursor-pointer border border-slate-200"
-                  onClick={() => setPlayingVideoId(video.id)}
+                  onClick={() => {
+                    if (playingVideoId !== video.id) {
+                      setPlayingVideoId(video.id)
+                      setIsVideoLoading(true)
+                    }
+                  }}
                 >
                   <AnimatePresence mode="wait">
                     {playingVideoId === video.id ? (
@@ -94,35 +100,39 @@ export const Reviews = () => {
                         animate={{ opacity: 1 }}
                         className="absolute inset-0 bg-black rounded-[1.5rem] overflow-hidden"
                       >
-                        {/* Loading spinner */}
-                        <div className="absolute inset-0 flex items-center justify-center z-0">
-                          <div className="w-8 h-8 rounded-full border-4 border-slate-600 border-t-white animate-spin" />
-                        </div>
+                        {/* Beautiful Loading Overlay */}
+                        <AnimatePresence>
+                          {isVideoLoading && (
+                            <motion.div 
+                              initial={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/95 backdrop-blur-sm z-20"
+                            >
+                              <div className="relative flex items-center justify-center mb-4">
+                                <div className="w-14 h-14 rounded-full border-4 border-slate-700/50" />
+                                <div className="absolute w-14 h-14 rounded-full border-4 border-brand border-t-transparent animate-spin" />
+                                <div className="absolute w-6 h-6 rounded-full bg-brand/20 animate-pulse" />
+                              </div>
+                              <span className="text-white/90 text-sm font-semibold tracking-wide animate-pulse">
+                                Video yuklanmoqda...
+                              </span>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
 
                         <div
-                          className="absolute z-10 left-0 right-0 overflow-hidden"
-                          style={{ top: "-56px", bottom: "-56px" }}
+                          className="absolute inset-0 z-10 bg-black"
                         >
-                          <iframe
-                            src={`${video.videoUrl.replace(/\/$/, '')}/embed`}
-                            style={{
-                              position: "absolute",
-                              top: 0,
-                              left: 0,
-                              width: "100%",
-                              height: "100%",
-                              border: "none",
-                              background: "black",
-                            }}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen={true}
-                            scrolling="no"
+                          <video
+                            src={video.videoUrl}
+                            autoPlay
+                            controls
+                            playsInline
+                            onCanPlay={() => setIsVideoLoading(false)}
+                            className={`w-full h-full object-cover transition-opacity duration-500 delay-150 ${isVideoLoading ? 'opacity-0' : 'opacity-100'}`}
+                            style={{ background: "black" }}
                           />
                         </div>
-
-                        {/* Extra black masks for pure clean edges */}
-                        <div className="absolute top-0 left-0 right-0 h-2 bg-black z-20 rounded-t-[1.5rem]" />
-                        <div className="absolute bottom-0 left-0 right-0 h-2 bg-black z-20 rounded-b-[1.5rem]" />
                       </motion.div>
                     ) : (
                       <motion.div
@@ -131,11 +141,12 @@ export const Reviews = () => {
                         exit={{ opacity: 0 }}
                         className="absolute inset-0 w-full h-full"
                       >
-                        <img
-                          src={video.thumbnail}
-                          alt={video.name}
-                          loading="lazy"
+                        <video
+                          src={`${video.videoUrl}#t=${video.thumbnailTime || 0.1}`}
+                          preload="metadata"
                           className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                          muted
+                          playsInline
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent transition-opacity" />
 
