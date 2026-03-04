@@ -13,6 +13,9 @@ export default {
   		}
   	},
   	extend: {
+      screens: {
+        'xs': '390px',
+      },
   		colors: {
   			brand: {
   				'50': 'var(--brand-50)',

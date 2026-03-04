@@ -29,7 +29,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-[2.5rem] md:text-6xl lg:text-[4rem] font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.1] pb-2"
+              className="text-[2.1rem] xs:text-[2.4rem] md:text-6xl lg:text-[4rem] font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.1] pb-2"
             >
               Dasturlashni  {" "}
               <span className="brand-gradient inline-block"> haqiqiy dasturchilar </span> <br/>
@@ -41,7 +41,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-slate-600 max-w-xl mb-10 leading-relaxed font-medium"
+              className="text-lg md:text-xl text-slate-600 max-w-xl mb-10 leading-relaxed md:font-medium"
             >
               Zamonaviy IT kasblarini egallang. Kuchli mentorlar yordamida sifatli bilim oling va IT olamida o'z kelajagingizni yarating. 
             </motion.p>
