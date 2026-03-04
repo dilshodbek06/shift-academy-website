@@ -36,7 +36,7 @@ export const CTA = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
               <Button 
                 size="lg" 
-                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand shadow-xl hover:shadow-2xl transition-all h-16 px-10 text-lg font-bold group rounded-2xl"
+                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand shadow-xl hover:shadow-2xl transition-all h-16 px-10 text-md sm:text-lg font-bold group rounded-2xl"
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Hoziroq ro'yxatdan o'tish

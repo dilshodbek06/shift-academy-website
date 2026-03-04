@@ -15,8 +15,7 @@ export const Reviews = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     align: "start",
     loop: true,
-    skipSnaps: false,
-    dragFree: true
+    skipSnaps: false
   })
 
   const [prevBtnDisabled, setPrevBtnDisabled] = React.useState(true)
