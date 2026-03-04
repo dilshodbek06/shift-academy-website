@@ -53,17 +53,12 @@ const companies = [
 ]
 
 const CompanyCard = ({ company }: { company: typeof companies[0] }) => {
-  const [imgSrc, setImgSrc] = useState(`https://logo.clearbit.com/${company.domain}?size=128`)
+  // Use Google Favicon directly as it is much more reliable in production. Fallback to icon on error.
+  const [imgSrc] = useState(`https://www.google.com/s2/favicons?domain=${company.domain}&sz=128`)
   const [hasError, setHasError] = useState(false)
 
   const handleError = () => {
-    if (imgSrc.includes('clearbit')) {
-      // Fallback to google favicon if clearbit fails
-      setImgSrc(`https://www.google.com/s2/favicons?domain=${company.domain}&sz=128`)
-    } else {
-      // Final fallback to Lucide icon
-      setHasError(true)
-    }
+    setHasError(true)
   }
 
   const { icon: Icon } = company
