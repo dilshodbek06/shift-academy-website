@@ -23,7 +23,7 @@ export const Footer = () => {
               O'zbekistondagi zamonaviy IT va dasturlash markazi. Kelajak kasblarini biz bilan o'rganing.
             </p>
             <div className="flex items-center gap-4">
-              <a target="_blank" href="https://www.instagram.com/shiftacademy.new/" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand/30 hover:shadow-md transition-all">
+              <a target="_blank" href="https://www.instagram.com/shiftacademy.uz/" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand/30 hover:shadow-md transition-all">
                 <Instagram className="w-4 h-4" />
               </a>
               <a target="_blank" href="https://t.me/shiftacademyuz" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand/30 hover:shadow-md transition-all">
