@@ -39,8 +39,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-slate-900 font-bold mb-4">Yo'nalishlar</h4>
             <ul className="space-y-3">
-              <li className="text-slate-500 text-sm font-medium transition-colors">Frontend Dasturlash</li>
-              <li className="text-slate-500 text-sm font-medium transition-colors">Backend dasturlash</li>
+              <li className="text-slate-500 text-sm font-medium transition-colors">Fullstack dasturlash</li>
               <li className="text-slate-500 text-sm font-medium transition-colors">SMM</li>
               <li className="text-slate-500 text-sm font-medium transition-colors">Kompyuter savodxonligi</li>
             </ul>
