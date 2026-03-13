@@ -63,8 +63,7 @@ export const Contact = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Endi barcha xavfsizlik va Token ishlari Vercel backendida bo'ladi
-      // Biz faqat ma'lumotlarni yuboramiz xolos.
+      
       const response = await fetch('/api/telegram', {
         method: 'POST',
         headers: {
@@ -249,8 +248,7 @@ export const Contact = () => {
                         className="w-full h-14 bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 focus:ring-2 focus:ring-brand focus:border-brand shadow-sm font-medium outline-none transition-all appearance-none cursor-pointer"
                       >
                         <option value="">Tanlang...</option>
-                        <option value="frontend">Frontend Dasturlash</option>
-                        <option value="backend">Backend dasturlash</option>
+                        <option value="fullstack">Fullstack dasturlash</option>
                         <option value="smm">SMM</option>
                         <option value="kompyuter">Kompyuter savodxonligi</option>
                       </select>

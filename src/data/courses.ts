@@ -14,51 +14,60 @@ export interface Course {
 
 export const courses: Course[] = [
   {
-    id: "frontend-dev",
-    title: "Frontend Dasturlash (React)",
-    description: "Zamonaviy web interfeyslar yaratish. HTML, CSS, JavaScript, Typescript va React.js ni chuqur o'rganing.",
-    duration: "10 oy",
+    id: "fullstack-dev",
+    title: "Fullstack dasturlash",
+    description:
+      "Ushbu kursda siz frontend qismida React va TypeScript yordamida tezkor, interaktiv va foydalanuvchi uchun qulay interfeyslar yaratishni, backend qismida esa Java orqali kuchli, xavfsiz va barqaror server ilovalar ishlab chiqishni o‘rganasiz.",
+    duration: "11 oy",
     format: ["Offline"],
-    level: "Boshlang'ich",
-    category: "Frontend",
-    outcomes: ["5+ real loyihalar", "Junior Frontend Developer darajasi", "Veb-saytlar va web-ilovalar yaratish"],
-  },
-  {
-    id: "backend-dev",
-    title: "Backend Dasturlash (Python)",
-    description: "Server arxitekturasi, ma'lumotlar bazasi va API lar yaratishni noldan o'rganing.",
-    duration: "6 oy",
-    format: ["Offline"],
-    level: "Boshlang'ich",
-    category: "Backend",
-    outcomes: ["Murakkab API yozish", "PostgreSQL bilan ishlash", "Xavfsizlik va performans"],
+    level: "Kuchli",
+    category: "Dasturlash",
+   outcomes: [
+  "React va TypeScript yordamida zamonaviy frontend yaratish",
+  "Java asosida kuchli backend ilovalar ishlab chiqish",
+  "REST API va database bilan ishlash",
+  "Frontend va backend integratsiyasini tushunish",
+  "Junior Fullstack Developer darajasiga chiqish",
+]
   },
   {
     id: "smm-dev",
     title: "SMM - Social Media Marketing",
-    description: "Ijtimoiy tarmoqlarda brendingizni rivojlantirish va marketing strategiyalarini o'rganing.",
+    description:
+      "Ijtimoiy tarmoqlarda brendingizni rivojlantirish va marketing strategiyalarini o'rganing.",
     duration: "2 oy",
     format: ["Offline", "Online"],
-    level: "Boshlang'ich",
+    level: "Kuchli",
     category: "SMM",
-   outcomes: [
-    "Kontent strategiya va reja tuzish",
-    "Post/Reels/Story uchun kreativ g‘oyalar ishlab chiqish",
-    "Target reklama (Meta Ads) asoslari va sozlash",
-    "Auditoriya tahlili va KPI (reach, engagement, CTR) bilan ishlash",
-    "SMM hisobot (report) tayyorlash va optimizatsiya"
-  ],
+    outcomes: [
+      "Kontent strategiya va reja tuzish",
+      "Post/Reels/Story uchun kreativ g‘oyalar ishlab chiqish",
+      "Target reklama (Meta Ads) asoslari va sozlash",
+      "Auditoriya tahlili va KPI (reach, engagement, CTR) bilan ishlash",
+      "SMM hisobot (report) tayyorlash va optimizatsiya",
+    ],
   },
   {
     id: "ks-engineering",
     title: "Kompyuter savodxonligi",
-   description: "Kompyuter savodxonligini o'rganing: Microsoft Office, internetdan xavfsiz va samarali foydalanish hamda kundalik zarur dasturlar bilan ishlashni o‘rganing.",
+    description:
+      "Kompyuter savodxonligini o'rganing: Microsoft Office, internetdan xavfsiz va samarali foydalanish hamda kundalik zarur dasturlar bilan ishlashni o‘rganing.",
     duration: "1 oy",
-    format: ["Offline",],
-    level: "Boshlang'ich",
+    format: ["Offline"],
+    level: "Kuchli",
     category: "Kompyuter savodxonligi",
-    outcomes: ["Microsoft Office", "Internet bilan ishlash", "Google dasturlari bilan ishlash", "Boshqa dasturlar"],
-  }
+    outcomes: [
+      "Microsoft Office",
+      "Internet bilan ishlash",
+      "Google dasturlari bilan ishlash",
+      "Boshqa dasturlar",
+    ],
+  },
 ];
 
-export const courseCategories = ["Barchasi", "Frontend", "Backend", "SMM", "Kompyuter savodxonligi"];
+export const courseCategories = [
+  "Barchasi",
+  "Dasturlash",
+  "SMM",
+  "Kompyuter savodxonligi",
+];
